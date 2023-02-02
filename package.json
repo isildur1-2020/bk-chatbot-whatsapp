@@ -5,7 +5,7 @@
     "main": "app.js",
     "scripts": {
         "pre-copy": "cd .. && yarn run copy.lib base-baileys-memory",
-        "start": "node app.js"
+        "start": "node src/app.js"
     },
     "keywords": [],
     "dependencies": {
