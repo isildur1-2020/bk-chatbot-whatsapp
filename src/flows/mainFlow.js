@@ -1,6 +1,15 @@
 const { addKeyword } = require("@bot-whatsapp/bot");
 
-const KEYWORDS = ["inicio", "menu", "ayuda", "bot", "chatbot", "chat"];
+const KEYWORDS = [
+  "inicio",
+  "menu",
+  "menú",
+  "Menú principal",
+  "ayuda",
+  "bot",
+  "chatbot",
+  "chat",
+];
 
 const ANSWERS = [
   "*_Bienvenido a nuestro chatbot !_*",

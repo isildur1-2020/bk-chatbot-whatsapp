@@ -1,18 +1,24 @@
 const { addKeyword } = require("@bot-whatsapp/bot");
+const { defaultConfig, defaultFunc } = require("../../utils/config");
 
 const KEYWORDS = ["Registrarme como nuevo socio"];
 
-const defaultConfig = {
-  capture: true,
-};
-
-const defaultFunc = async (ctx, { flowDynamic }) => {
-  await flowDynamic();
-};
-
-const closeFunc = async (ctx, { flowDynamic, endFlow }) => {
-  await flowDynamic();
-  return endFlow();
+const userForm = {
+  typeOfId: "",
+  id: "",
+  name: "",
+  lastname: "",
+  gender: "",
+  dateOfBirth: "",
+  email: "",
+  phone: "",
+  state: "",
+  town: "",
+  scholarship: "",
+  job: "",
+  groupCode: "",
+  groupName: "",
+  groupCountry: "",
 };
 
 // =====================================================================
@@ -142,21 +148,34 @@ const CONFIG_15 = {
   buttons: OPTIONS_15.map((body) => ({ body })),
 };
 
+// =====================================================================
+// Enviando al backend
+const ANSWERS_16 = ["*_Información enviada con éxito._*"];
+const CONFIG_16 = {
+  buttons: [{ body: "⬅️ Volver al Inicio" }],
+};
+const FUNC_16 = async (ctx, { flowDynamic, endFlow }) => {
+  console.log({ userForm });
+  await flowDynamic();
+  return endFlow();
+};
+
 const register_as_a_new_partner = addKeyword(KEYWORDS)
-  .addAnswer(ANSWERS_1, CONFIG_1, defaultFunc)
-  .addAnswer(ANSWERS_2, defaultConfig, defaultFunc)
-  .addAnswer(ANSWERS_3, defaultConfig, defaultFunc)
-  .addAnswer(ANSWERS_4, defaultConfig, defaultFunc)
-  .addAnswer(ANSWERS_5, CONFIG_5, defaultFunc)
-  .addAnswer(ANSWERS_6, defaultConfig, defaultFunc)
-  .addAnswer(ANSWERS_7, defaultConfig, defaultFunc)
-  .addAnswer(ANSWERS_8, defaultConfig, defaultFunc)
-  .addAnswer(ANSWERS_9, defaultConfig, defaultFunc)
-  .addAnswer(ANSWERS_10, defaultConfig, defaultFunc)
-  .addAnswer(ANSWERS_11, CONFIG_11, defaultFunc)
-  .addAnswer(ANSWERS_12, defaultConfig, defaultFunc)
-  .addAnswer(ANSWERS_13, defaultConfig, defaultFunc)
-  .addAnswer(ANSWERS_14, defaultConfig, defaultFunc)
-  .addAnswer(ANSWERS_15, CONFIG_15, closeFunc);
+  .addAnswer(ANSWERS_1, CONFIG_1, defaultFunc(userForm, "typeOfId"))
+  .addAnswer(ANSWERS_2, defaultConfig, defaultFunc(userForm, "id"))
+  .addAnswer(ANSWERS_3, defaultConfig, defaultFunc(userForm, "name"))
+  .addAnswer(ANSWERS_4, defaultConfig, defaultFunc(userForm, "lastname"))
+  .addAnswer(ANSWERS_5, CONFIG_5, defaultFunc(userForm, "gender"))
+  .addAnswer(ANSWERS_6, defaultConfig, defaultFunc(userForm, "dateOfBirth"))
+  .addAnswer(ANSWERS_7, defaultConfig, defaultFunc(userForm, "email"))
+  .addAnswer(ANSWERS_8, defaultConfig, defaultFunc(userForm, "phone"))
+  .addAnswer(ANSWERS_9, defaultConfig, defaultFunc(userForm, "state"))
+  .addAnswer(ANSWERS_10, defaultConfig, defaultFunc(userForm, "town"))
+  .addAnswer(ANSWERS_11, CONFIG_11, defaultFunc(userForm, "scholarship"))
+  .addAnswer(ANSWERS_12, defaultConfig, defaultFunc(userForm, "job"))
+  .addAnswer(ANSWERS_13, defaultConfig, defaultFunc(userForm, "groupCode"))
+  .addAnswer(ANSWERS_14, defaultConfig, defaultFunc(userForm, "groupName"))
+  .addAnswer(ANSWERS_15, CONFIG_15, defaultFunc(userForm, "groupCountry"))
+  .addAnswer(ANSWERS_16, CONFIG_16, FUNC_16);
 
 module.exports = { register_as_a_new_partner };
