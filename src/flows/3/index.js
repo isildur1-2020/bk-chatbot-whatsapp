@@ -1,7 +1,34 @@
 const { addKeyword } = require("@bot-whatsapp/bot");
-const { defaultConfig, defaultFunc, closeFunc } = require("../../utils/config");
-
-const KEYWORDS = ["Solicitar crédito"];
+const { KEYWORDS } = require("../../utils/keywords");
+const { ANSWERS_1 } = require("./answers/first");
+const { ANSWERS_2 } = require("./answers/second");
+const { ANSWERS_3, CONFIG_3 } = require("./answers/third");
+const { ANSWERS_4, CONFIG_4 } = require("./answers/fourth");
+const {
+  ANSWERS_4_1,
+  CONFIG_4_1,
+} = require("./answers/fourth/subanswers/first");
+const {
+  ANSWERS_4_2,
+  CONFIG_4_2,
+} = require("./answers/fourth/subanswers/second");
+const {
+  ANSWERS_4_3,
+  CONFIG_4_3,
+} = require("./answers/fourth/subanswers/third");
+const {
+  ANSWERS_4_4,
+  CONFIG_4_4,
+} = require("./answers/fourth/subanswers/fourth");
+const {
+  ANSWERS_4_5,
+  CONFIG_4_5,
+} = require("./answers/fourth/subanswers/fifth");
+const {
+  captureConfig,
+  simpleFunc,
+  fillFormFunc,
+} = require("../../utils/config");
 
 const userForm = {
   id: "",
@@ -10,80 +37,59 @@ const userForm = {
   purpose: "",
 };
 
-// =====================================================================
-// Identidad del socio: string
-const ANSWERS_1 = [
-  "*_Identidad del socio._*",
-  "\n_Escribe tu número de documento de identidad:_\n",
-];
+const customFunc =
+  (object, keyName) =>
+  async (ctx, { flowDynamic, endFlow }) => {
+    object[keyName] = ctx.body;
+    console.log(userForm);
+    await flowDynamic([
+      {
+        body: "```Datos enviados con éxito!```",
+      },
+    ]);
+    return endFlow();
+  };
 
-// =====================================================================
-// ¿Cuánto dinero vas a solicitar?: string
-const ANSWERS_2 = [
-  "*_¿Cuánto dinero vas a solicitar?_*",
-  "\n_Escribe cuánto dinero vas a solicitar:_\n",
-];
+const businessInvestment = addKeyword("Inversión en negocios").addAnswer(
+  ANSWERS_4_1,
+  CONFIG_4_1,
+  customFunc(userForm, "purpose")
+);
 
-// =====================================================================
-// ¿En cuántos meses quieres pagar el crédito?: enum
-const ANSWERS_3 = [
-  "*_¿En cuántos meses quieres pagar el crédito?_*",
-  "\n_Selecciona el número de meses:_\n",
-];
-const OPTIONS_3 = [
-  "1",
-  "2",
-  "3",
-  "4",
-  "5",
-  "6",
-  "7",
-  "8",
-  "9",
-  "10",
-  "11",
-  "12",
-];
-const CONFIG_3 = {
-  capture: true,
-  buttons: OPTIONS_3.map((body) => ({ body })),
-};
+const bebtPayment = addKeyword("Pago de deudas con otros").addAnswer(
+  ANSWERS_4_2,
+  CONFIG_4_2,
+  customFunc(userForm, "purpose")
+);
 
-// =====================================================================
-// ¿Para qué usarás el crédito?: enum
-const ANSWERS_4 = [
-  "*_¿Para qué usarás el crédito?_*",
-  "\n_Selecciona una opción:_\n",
-];
-const OPTIONS_4 = [
-  "Inversión en negocios",
-  "Pago de deudas con otros",
-  "Inversión familiar",
-  "Gastos médicos",
-  "Inversión agrícola",
-];
-const CONFIG_4 = {
-  capture: true,
-  buttons: OPTIONS_4.map((body) => ({ body })),
-};
+const familyInvestment = addKeyword("Inversión familiar").addAnswer(
+  ANSWERS_4_3,
+  CONFIG_4_3,
+  customFunc(userForm, "purpose")
+);
 
-// =====================================================================
-// Enviando al backend
-const ANSWERS_5 = ["*_Información enviada con éxito._*"];
-const CONFIG_5 = {
-  buttons: [{ body: "⬅️ Volver al Inicio" }],
-};
-const FUNC_5 = async (ctx, { flowDynamic, endFlow }) => {
-  console.log({ userForm });
-  await flowDynamic();
-  return endFlow();
-};
+const medicalExpenses = addKeyword("Gastos médicos").addAnswer(
+  ANSWERS_4_4,
+  CONFIG_4_4,
+  customFunc(userForm, "purpose")
+);
 
-const apply_for_credit = addKeyword(KEYWORDS)
-  .addAnswer(ANSWERS_1, defaultConfig, defaultFunc(userForm, "id"))
-  .addAnswer(ANSWERS_2, defaultConfig, defaultFunc(userForm, "money"))
-  .addAnswer(ANSWERS_3, CONFIG_3, defaultFunc(userForm, "months"))
-  .addAnswer(ANSWERS_4, CONFIG_4, defaultFunc(userForm, "purpose"))
-  .addAnswer(ANSWERS_5, CONFIG_5, FUNC_5);
+const agriculturalInvestment = addKeyword("Inversión agrícola").addAnswer(
+  ANSWERS_4_5,
+  CONFIG_4_5,
+  customFunc(userForm, "purpose")
+);
+
+const apply_for_credit = addKeyword(KEYWORDS.apply_for_credit)
+  .addAnswer(ANSWERS_1, captureConfig, fillFormFunc(userForm, "id"))
+  .addAnswer(ANSWERS_2, captureConfig, fillFormFunc(userForm, "money"))
+  .addAnswer(ANSWERS_3, CONFIG_3, fillFormFunc(userForm, "months"))
+  .addAnswer(ANSWERS_4, CONFIG_4, simpleFunc, [
+    businessInvestment,
+    bebtPayment,
+    familyInvestment,
+    medicalExpenses,
+    agriculturalInvestment,
+  ]);
 
 module.exports = { apply_for_credit };
