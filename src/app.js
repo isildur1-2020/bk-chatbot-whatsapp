@@ -1,4 +1,5 @@
 const { createBot, createProvider, createFlow } = require("@bot-whatsapp/bot");
+const QRPortalWeb = require("@bot-whatsapp/portal");
 
 const WsProvider = require("@bot-whatsapp/provider/baileys");
 const DBProvider = require("@bot-whatsapp/database/mock");
@@ -25,6 +26,8 @@ const main = async () => {
     provider: adapterProvider,
     database: adapterDB,
   });
+
+  QRPortalWeb({ name: bot, port: 34567 });
 };
 
 main();
