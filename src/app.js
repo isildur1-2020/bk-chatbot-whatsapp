@@ -28,5 +28,5 @@ const main = async () => {
   });
 };
 
-QRPortalWeb();
+QRPortalWeb({ port: 80 });
 main();
