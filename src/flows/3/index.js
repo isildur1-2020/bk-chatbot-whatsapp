@@ -4,31 +4,19 @@ const { ANSWERS_1 } = require("./answers/first");
 const { ANSWERS_2 } = require("./answers/second");
 const { ANSWERS_3, CONFIG_3 } = require("./answers/third");
 const { ANSWERS_4, CONFIG_4 } = require("./answers/fourth");
-const {
-  ANSWERS_4_1,
-  CONFIG_4_1,
-} = require("./answers/fourth/subanswers/first");
-const {
-  ANSWERS_4_2,
-  CONFIG_4_2,
-} = require("./answers/fourth/subanswers/second");
-const {
-  ANSWERS_4_3,
-  CONFIG_4_3,
-} = require("./answers/fourth/subanswers/third");
-const {
-  ANSWERS_4_4,
-  CONFIG_4_4,
-} = require("./answers/fourth/subanswers/fourth");
-const {
-  ANSWERS_4_5,
-  CONFIG_4_5,
-} = require("./answers/fourth/subanswers/fifth");
+const { ANSWERS_4_1, CONFIG_4_1 } = require("./answers/fourth/sub/first");
+const { ANSWERS_4_2, CONFIG_4_2 } = require("./answers/fourth/sub/second");
+const { ANSWERS_4_3, CONFIG_4_3 } = require("./answers/fourth/sub/third");
+const { ANSWERS_4_4, CONFIG_4_4 } = require("./answers/fourth/sub/fourth");
+const { ANSWERS_4_5, CONFIG_4_5 } = require("./answers/fourth/sub/fifth");
 const {
   captureConfig,
   simpleFunc,
   fillFormFunc,
 } = require("../../utils/config");
+const {
+  applyForCreditService,
+} = require("../../services/applyForCreditService");
 
 const userForm = {
   id: "",
@@ -41,7 +29,7 @@ const customFunc =
   (object, keyName) =>
   async (ctx, { flowDynamic, endFlow }) => {
     object[keyName] = ctx.body;
-    console.log(userForm);
+    applyForCreditService(userForm);
     await flowDynamic([
       {
         body: "```Datos enviados con éxito!```",
