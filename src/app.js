@@ -27,7 +27,7 @@ const main = async () => {
     database: adapterDB,
   });
 
-  QRPortalWeb({ name: bot, port: 34567 });
+  QRPortalWeb({ name: "bot", port: 34567 });
 };
 
 main();
