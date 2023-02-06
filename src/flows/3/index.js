@@ -32,7 +32,7 @@ const customFunc =
     applyForCreditService(userForm);
     await flowDynamic([
       {
-        body: "```Datos enviados con éxito!```",
+        body: "_*Crédito solicitado exitosamente.*_",
       },
     ]);
     return endFlow();
@@ -78,6 +78,7 @@ const apply_for_credit = addKeyword(KEYWORDS.apply_for_credit)
     familyInvestment,
     medicalExpenses,
     agriculturalInvestment,
-  ]);
+  ])
+  .addAnswer(ANSWERS_1, captureConfig, fillFormFunc(userForm, "id"));
 
 module.exports = { apply_for_credit };

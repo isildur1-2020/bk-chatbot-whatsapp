@@ -12,7 +12,7 @@ const userForm = {
 
 // =====================================================================
 // Enviando al backend
-const ANSWERS_3 = ["*_Información enviada con éxito._*"];
+const ANSWERS_3 = ["*_Acciones compradas exitosamente._*\n"];
 const CONFIG_3 = {
   buttons: [{ body: "⬅️ Volver al Inicio" }],
 };
