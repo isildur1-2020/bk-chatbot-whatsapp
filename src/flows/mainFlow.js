@@ -1,4 +1,5 @@
 const { addKeyword } = require("@bot-whatsapp/bot");
+console.log("hello");
 
 const KEYWORDS = [
   "inicio",
