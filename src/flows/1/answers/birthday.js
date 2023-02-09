@@ -6,6 +6,10 @@ const ANSWERS_6 = {
 };
 
 const DATA_6 = {
+  day: [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+    22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
+  ],
   month: {
     Enero: 1,
     Febrero: 2,
@@ -24,6 +28,7 @@ const DATA_6 = {
 
 const OPTIONS_6 = {
   month: Object.keys(DATA_6.month),
+  day: DATA_6.day,
 };
 
 const CONFIG_6 = {
@@ -33,4 +38,8 @@ const CONFIG_6 = {
   },
 };
 
-module.exports = { ANSWERS_6, CONFIG_6 };
+const REGEX_6 = {
+  year: new RegExp(/^\d{4}$/, "g"),
+};
+
+module.exports = { ANSWERS_6, OPTIONS_6, CONFIG_6, REGEX_6 };

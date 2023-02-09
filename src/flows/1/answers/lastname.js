@@ -4,4 +4,6 @@ const ANSWERS_4 = [
   "\n_Escribe tus apellidos:_\n",
 ];
 
-module.exports = { ANSWERS_4 };
+const REGEX_4 = new RegExp(/^[a-zA-z\s]+$/, "g");
+
+module.exports = { ANSWERS_4, REGEX_4 };

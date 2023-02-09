@@ -9,6 +9,7 @@ const CONFIG_5 = {
 };
 
 module.exports = {
-  ANSWERS_5,
   CONFIG_5,
+  ANSWERS_5,
+  OPTIONS_5,
 };

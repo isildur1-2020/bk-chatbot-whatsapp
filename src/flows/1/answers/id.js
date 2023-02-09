@@ -4,4 +4,6 @@ const ANSWERS_2 = [
   "\n_Escribe tu número de documento de identidad:_\n",
 ];
 
-module.exports = { ANSWERS_2 };
+const REGEX_2 = new RegExp(/^\d{5,12}$/, "g");
+
+module.exports = { ANSWERS_2, REGEX_2 };

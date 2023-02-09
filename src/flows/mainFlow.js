@@ -1,7 +1,7 @@
 const { addKeyword } = require("@bot-whatsapp/bot");
-console.log("hello");
+const { bkPath } = require("../utils/bkPath");
 
-const KEYWORDS = [
+const KEYWORDS_1 = [
   "inicio",
   "menu",
   "menú",
@@ -12,23 +12,23 @@ const KEYWORDS = [
   "chat",
 ];
 
-const ANSWERS = [
-  "*_Bienvenido a nuestro chatbot !_*",
-  "\n_Por favor, da click en una opción:_\n",
+const ANSWERS_1 = [
+  "*_¡ Bienvenido a nuestro chatbot !_*",
+  "\n_Por favor, elige una opción:_\n",
 ];
 
-const OPTIONS = [
-  "Registrarme como nuevo socio",
-  "Comprar acciones",
-  "Solicitar crédito",
+const OPTIONS_1 = [
+  bkPath.register_as_a_new_partner,
+  bkPath.buy_actions,
+  bkPath.apply_for_credit,
 ];
 
 const config = {
   sensitive: true,
   capture: true,
-  buttons: OPTIONS.map((body) => ({ body })),
+  buttons: OPTIONS_1.map((body) => ({ body })),
 };
 
-const mainFlow = addKeyword(KEYWORDS).addAnswer(ANSWERS, config);
+const mainFlow = addKeyword(KEYWORDS_1).addAnswer(ANSWERS_1, config);
 
 module.exports = mainFlow;
