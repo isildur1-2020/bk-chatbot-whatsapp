@@ -4,4 +4,6 @@ const ANSWERS_10 = [
   "\n_Escribe el municipio donde estás ubicado:_\n",
 ];
 
-module.exports = { ANSWERS_10 };
+const REGEX_10 = new RegExp(/^\w{4,40}$/, "g");
+
+module.exports = { ANSWERS_10, REGEX_10 };

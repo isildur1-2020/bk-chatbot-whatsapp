@@ -23,7 +23,7 @@ const enumFormFunc = (options, object, keyName) => {
     ) {
       return fallBack();
     }
-    object[keyName] = userAnswer;
+    if (object !== undefined) object[keyName] = userAnswer;
     await flowDynamic();
   };
 };

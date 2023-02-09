@@ -11,4 +11,4 @@ const CONFIG_11 = {
   buttons: OPTIONS_11.map((body) => ({ body })),
 };
 
-module.exports = { ANSWERS_11, CONFIG_11 };
+module.exports = { ANSWERS_11, OPTIONS_11, CONFIG_11 };

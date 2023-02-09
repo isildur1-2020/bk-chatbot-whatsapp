@@ -1,16 +1,7 @@
-const { addKeyword } = require("@bot-whatsapp/bot");
 const { bkPath } = require("../utils/bkPath");
-
-const KEYWORDS_1 = [
-  "inicio",
-  "menu",
-  "menú",
-  "Menú principal",
-  "ayuda",
-  "bot",
-  "chatbot",
-  "chat",
-];
+const { addKeyword } = require("@bot-whatsapp/bot");
+const { enumFormFunc } = require("../utils/config");
+const { INIT_KEYWORDS } = require("../utils/keywords");
 
 const ANSWERS_1 = [
   "*_¡ Bienvenido a nuestro chatbot !_*",
@@ -24,11 +15,15 @@ const OPTIONS_1 = [
 ];
 
 const config = {
-  sensitive: true,
   capture: true,
+  sensitive: true,
   buttons: OPTIONS_1.map((body) => ({ body })),
 };
 
-const mainFlow = addKeyword(KEYWORDS_1).addAnswer(ANSWERS_1, config);
+const mainFlow = addKeyword(INIT_KEYWORDS).addAnswer(
+  ANSWERS_1,
+  config,
+  enumFormFunc(OPTIONS_1)
+);
 
 module.exports = mainFlow;

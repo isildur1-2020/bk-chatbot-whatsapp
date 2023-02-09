@@ -5,4 +5,6 @@ const ANSWERS_14 = [
   "\n_Escribe el nombre del grupo:_",
 ];
 
-module.exports = { ANSWERS_14 };
+const OPTIONS_14 = ["Nombre 1", "Nombre 2", "Nombre 3"];
+
+module.exports = { ANSWERS_14, OPTIONS_14 };

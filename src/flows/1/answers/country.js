@@ -4,6 +4,7 @@ const ANSWERS_15 = [
   "\n_Selecciona el país del grupo:_\n",
 ];
 const OPTIONS_15 = ["Colombia", "Argentina"];
+
 const CONFIG_15 = {
   capture: true,
   buttons: OPTIONS_15.map((body) => ({ body })),
@@ -12,4 +13,5 @@ const CONFIG_15 = {
 module.exports = {
   ANSWERS_15,
   CONFIG_15,
+  OPTIONS_15,
 };

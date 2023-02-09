@@ -4,4 +4,6 @@ const ANSWERS_9 = [
   "\n_Escribe el estado o departamento donde estás ubicado:_\n",
 ];
 
-module.exports = { ANSWERS_9 };
+const REGEX_9 = new RegExp(/\w{3,30}/, "g");
+
+module.exports = { ANSWERS_9, REGEX_9 };
