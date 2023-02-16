@@ -39,6 +39,7 @@ const FUNC_2 = (regex, object, keyName) => {
   };
 };
 
-const REGEX_2 = new RegExp(/^\d{5,12}$/, "g");
+// const REGEX_2 = new RegExp(/^\d{5,12}$/, "g");
+const REGEX_2 = new RegExp(/^\d{1,12}$/, "g");
 
 module.exports = { ANSWERS_2, REGEX_2, FUNC_2 };

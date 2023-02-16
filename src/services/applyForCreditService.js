@@ -1,11 +1,7 @@
 const axios = require("../config/axios");
+const { bkPathAPI } = require("../utils/bkPath");
 
-const applyForCreditService = async (data) => {
-  try {
-    await axios.post("/apply-for-credit", data);
-  } catch (err) {
-    console.log(err);
-  }
-};
+const applyForCreditService = (data) =>
+  axios.post(bkPathAPI.applyForCredit, data);
 
 module.exports = { applyForCreditService };

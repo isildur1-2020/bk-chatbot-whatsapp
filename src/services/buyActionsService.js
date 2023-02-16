@@ -1,11 +1,7 @@
 const axios = require("../config/axios");
+const { bkPathAPI } = require("../utils/bkPath");
 
-const buyActionsService = async (data) => {
-  try {
-    await axios.post("/buy-actions", data);
-  } catch (err) {
-    console.log(err);
-  }
-};
+const buyActionsService = async (data) =>
+  axios.post(bkPathAPI.postBuyActions, data);
 
 module.exports = { buyActionsService };

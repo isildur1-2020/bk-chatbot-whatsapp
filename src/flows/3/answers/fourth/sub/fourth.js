@@ -17,4 +17,5 @@ const CONFIG_4_4 = {
 module.exports = {
   ANSWERS_4_4,
   CONFIG_4_4,
+  OPTIONS_4_4,
 };

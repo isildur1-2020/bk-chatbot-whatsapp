@@ -7,6 +7,10 @@ const bkPath = {
 const bkPathAPI = {
   getUserExists: "/userExists",
   registerUser: "/registerUser",
+  getUserActions: "/getUserActionsToBuy",
+  postBuyActions: "/buy-actions",
+  getUserCredit: "/getUserCreditToApply",
+  applyForCredit: "/apply-for-credit",
 };
 
 module.exports = {
