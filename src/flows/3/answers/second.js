@@ -29,7 +29,7 @@ const FUNC_2 = (regex, object, keyName) => {
       console.log({ quantityNumber });
       if (+userAnswer > quantityNumber) {
         return endFlow({
-          body: `*❌ Este usuario pedir hasta ${quantityOfCredit} en crédito.*`,
+          body: `*❌ Este usuario puede pedir hasta ${quantityOfCredit} en crédito.*`,
           buttons: [{ body: "⬅️ Menú principal" }],
         });
       }
