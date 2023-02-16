@@ -4,6 +4,12 @@ const bkPath = {
   apply_for_credit: "Solicitar crédito",
 };
 
+const bkPathAPI = {
+  getUserExists: "/userExists",
+  registerUser: "/registerUser",
+};
+
 module.exports = {
   bkPath,
+  bkPathAPI,
 };

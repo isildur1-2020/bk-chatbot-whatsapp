@@ -6,7 +6,7 @@ const {
 const { bkPath } = require("../../utils/bkPath");
 const { addKeyword } = require("@bot-whatsapp/bot");
 const { ANSWERS_1, CONFIG_1, OPTIONS_1 } = require("./answers/typeId");
-const { ANSWERS_2, REGEX_2 } = require("./answers/id");
+const { ANSWERS_2, REGEX_2, FUNC_2 } = require("./answers/id");
 const { ANSWERS_3, REGEX_3 } = require("./answers/names");
 const { ANSWERS_4, REGEX_4 } = require("./answers/lastname");
 const { ANSWERS_5, CONFIG_5, OPTIONS_5 } = require("./answers/gender");
@@ -22,10 +22,10 @@ const { ANSWERS_9, REGEX_9 } = require("./answers/state");
 const { ANSWERS_10, REGEX_10 } = require("./answers/downtown");
 const { ANSWERS_11, CONFIG_11, OPTIONS_11 } = require("./answers/escolarity");
 const { ANSWERS_12, REGEX_12 } = require("./answers/job");
-const { ANSWERS_13, OPTIONS_13 } = require("./answers/groupCode");
-const { ANSWERS_14, OPTIONS_14 } = require("./answers/groupName");
+const { ANSWERS_13, OPTIONS_13, CONFIG_13 } = require("./answers/groupCode");
+const { ANSWERS_14, OPTIONS_14, CONFIG_14 } = require("./answers/groupName");
 const { ANSWERS_15, CONFIG_15, OPTIONS_15 } = require("./answers/country");
-const { ANSWERS_16, CONFIG_16, FUNC_16 } = require("./answers/sendData");
+const { ANSWERS_16, FUNC_16 } = require("./answers/sendData");
 
 const userForm = {
   action: bkPath.register_as_a_new_partner,
@@ -52,7 +52,7 @@ const userForm = {
 
 const register_as_a_new_partner = addKeyword(bkPath.register_as_a_new_partner)
   .addAnswer(ANSWERS_1, CONFIG_1, enumFormFunc(OPTIONS_1, userForm, "typeOfId"))
-  .addAnswer(ANSWERS_2, captureConfig, regexFormFunc(REGEX_2, userForm, "id"))
+  .addAnswer(ANSWERS_2, captureConfig, FUNC_2(REGEX_2, userForm, "id"))
   .addAnswer(ANSWERS_3, captureConfig, regexFormFunc(REGEX_3, userForm, "name"))
   .addAnswer(
     ANSWERS_4,
@@ -107,12 +107,12 @@ const register_as_a_new_partner = addKeyword(bkPath.register_as_a_new_partner)
   )
   .addAnswer(
     ANSWERS_13,
-    captureConfig,
+    CONFIG_13,
     enumFormFunc(OPTIONS_13, userForm, "groupCode")
   )
   .addAnswer(
     ANSWERS_14,
-    captureConfig,
+    CONFIG_14,
     enumFormFunc(OPTIONS_14, userForm, "groupName")
   )
   .addAnswer(
@@ -120,6 +120,6 @@ const register_as_a_new_partner = addKeyword(bkPath.register_as_a_new_partner)
     CONFIG_15,
     enumFormFunc(OPTIONS_15, userForm, "groupCountry")
   )
-  .addAnswer(ANSWERS_16, CONFIG_16, FUNC_16);
+  .addAnswer(ANSWERS_16, null, FUNC_16(userForm));
 
 module.exports = { register_as_a_new_partner };

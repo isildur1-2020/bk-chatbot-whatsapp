@@ -7,4 +7,9 @@ const ANSWERS_14 = [
 
 const OPTIONS_14 = ["Nombre 1", "Nombre 2", "Nombre 3"];
 
-module.exports = { ANSWERS_14, OPTIONS_14 };
+const CONFIG_14 = {
+  capture: true,
+  buttons: OPTIONS_14.map((body) => ({ body })),
+};
+
+module.exports = { ANSWERS_14, OPTIONS_14, CONFIG_14 };

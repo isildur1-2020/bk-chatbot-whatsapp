@@ -1,11 +1,6 @@
 const axios = require("../config/axios");
+const { bkPathAPI } = require("../utils/bkPath");
 
-const registerService = async (data) => {
-  try {
-    await axios.post("/register", data);
-  } catch (err) {
-    console.log(err);
-  }
-};
+const registerService = (data) => axios.post(bkPathAPI.registerUser, data);
 
 module.exports = { registerService };
