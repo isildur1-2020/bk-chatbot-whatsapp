@@ -2,6 +2,8 @@ const {
   captureConfig,
   regexFormFunc,
   enumFormFunc,
+  simpleFunc,
+  fillFormFunc,
 } = require("../../utils/config");
 const { bkPath } = require("../../utils/bkPath");
 const { addKeyword } = require("@bot-whatsapp/bot");
@@ -68,12 +70,14 @@ const register_as_a_new_partner = addKeyword(bkPath.register_as_a_new_partner)
   .addAnswer(
     ANSWERS_6.month,
     CONFIG_6.month,
-    enumFormFunc(OPTIONS_6.month, userForm.dateOfBirth, "month")
+    fillFormFunc(userForm.dateOfBirth, "month")
+    // enumFormFunc(OPTIONS_6.month, userForm.dateOfBirth, "month")
   )
   .addAnswer(
     ANSWERS_6.day,
     captureConfig,
-    enumFormFunc(OPTIONS_6.day, userForm.dateOfBirth, "day")
+    fillFormFunc(userForm.dateOfBirth, "day")
+    // enumFormFunc(OPTIONS_6.day, userForm.dateOfBirth, "day")
   )
   .addAnswer(
     ANSWERS_7,
@@ -108,12 +112,14 @@ const register_as_a_new_partner = addKeyword(bkPath.register_as_a_new_partner)
   .addAnswer(
     ANSWERS_13,
     CONFIG_13,
-    enumFormFunc(OPTIONS_13, userForm, "groupCode")
+    fillFormFunc(userForm, "groupCode")
+    // enumFormFunc(OPTIONS_13, userForm, "groupCode")
   )
   .addAnswer(
     ANSWERS_14,
     CONFIG_14,
-    enumFormFunc(OPTIONS_14, userForm, "groupName")
+    fillFormFunc(userForm, "groupName")
+    // enumFormFunc(OPTIONS_14, userForm, "groupName")
   )
   .addAnswer(
     ANSWERS_15,
