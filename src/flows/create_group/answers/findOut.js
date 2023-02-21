@@ -8,7 +8,7 @@ const OPTIONS_5 = [
   "Una persona me contó sobre estos grupos",
   "Lo vi en las redes sociales",
   "Fui anteriormente miembro de un grupo",
-  "Revisé su paágina web",
+  "Revisé su página web",
   "Otro",
 ];
 
