@@ -7,7 +7,7 @@ const mainFlow = require("./flows/main");
 const {
   register_as_a_new_partner,
 } = require("./flows/register_as_a_ new_partner");
-const { buy_actions } = require("./flows/2");
+const { buy_actions } = require("./flows/buy-actions");
 const { apply_for_credit } = require("./flows/3");
 
 const flows = [

@@ -1,15 +1,14 @@
-// Número de documento de identidad: string
 const {
   getUserExistsService,
 } = require("../../../services/getUserExistsService");
 const { userForm } = require("../userForm");
 
-const ANSWERS_2 = [
-  "*_Número de documento de identidad._*",
+const ANSWERS_1 = [
+  "*_Identidad del socio._*",
   "\n_Escribe tu número de documento de identidad:_\n",
 ];
 
-const FUNC_2 = async (ctx, { fallBack, flowDynamic, endFlow }) => {
+const FUNC_1 = async (ctx, { fallBack, flowDynamic, endFlow }) => {
   try {
     const userAnswer = ctx?.body?.trim();
     const regex = new RegExp(/^\d{1,12}$/, "g");
@@ -19,9 +18,9 @@ const FUNC_2 = async (ctx, { fallBack, flowDynamic, endFlow }) => {
       return fallBack();
     }
     const { data } = await getUserExistsService(userAnswer);
-    if (data?.isUserExists) {
+    if (!data?.isUserExists) {
       return endFlow({
-        body: "*❌ Ya existe un usuario con esta identificación.*",
+        body: "*❌ No existe un usuario con esta identificación.*",
         buttons: [{ body: "⬅️ Menú principal" }],
       });
     }
@@ -36,4 +35,4 @@ const FUNC_2 = async (ctx, { fallBack, flowDynamic, endFlow }) => {
   }
 };
 
-module.exports = { ANSWERS_2, FUNC_2 };
+module.exports = { ANSWERS_1, FUNC_1 };

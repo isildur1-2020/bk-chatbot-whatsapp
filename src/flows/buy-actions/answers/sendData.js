@@ -1,6 +1,6 @@
 const { buyActionsService } = require("../../../services/buyActionsService");
 
-const ANSWERS_3 = ["*_Creando solicitud..._*\n"];
+const ANSWERS_3 = ["🌐 *_Creando solicitud..._*\n"];
 
 const FUNC_3 =
   (form) =>

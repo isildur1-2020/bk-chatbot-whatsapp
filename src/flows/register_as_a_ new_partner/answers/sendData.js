@@ -1,6 +1,6 @@
 const { registerService } = require("../../../services/registerService");
 
-const ANSWERS_16 = ["*_Guardando información..._*\n"];
+const ANSWERS_16 = ["🌐 *_Guardando información..._*\n"];
 
 const FUNC_16 =
   (form) =>
