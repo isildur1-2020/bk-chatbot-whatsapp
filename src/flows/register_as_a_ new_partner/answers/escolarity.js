@@ -4,7 +4,7 @@ const ANSWERS_11 = [
   "\n_Selecciona tu nivel de estudios:_\n",
 ];
 
-const OPTIONS_11 = ["Primaria", "Secundaria", "Universidad"];
+const OPTIONS_11 = ["Primaria", "Secundaria", "Universidad", "Otro"];
 
 const CONFIG_11 = {
   capture: true,

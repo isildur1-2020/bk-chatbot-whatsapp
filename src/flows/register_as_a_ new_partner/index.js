@@ -1,60 +1,28 @@
-const {
-  captureConfig,
-  regexFormFunc,
-  enumFormFunc,
-  simpleFunc,
-  fillFormFunc,
-} = require("../../utils/config");
+const { userForm } = require("./userForm");
 const { bkPath } = require("../../utils/bkPath");
 const { addKeyword } = require("@bot-whatsapp/bot");
+const { captureConfig, regexFormFunc } = require("../../utils/config");
+const { enumFormFunc, fillFormFunc } = require("../../utils/config");
 const { ANSWERS_1, CONFIG_1, OPTIONS_1 } = require("./answers/typeId");
-const { ANSWERS_2, REGEX_2, FUNC_2 } = require("./answers/id");
+const { ANSWERS_2, FUNC_2 } = require("./answers/id");
 const { ANSWERS_3, REGEX_3 } = require("./answers/names");
 const { ANSWERS_4, REGEX_4 } = require("./answers/lastname");
 const { ANSWERS_5, CONFIG_5, OPTIONS_5 } = require("./answers/gender");
-const {
-  ANSWERS_6,
-  CONFIG_6,
-  REGEX_6,
-  OPTIONS_6,
-} = require("./answers/birthday");
+const { ANSWERS_6, CONFIG_6, REGEX_6 } = require("./answers/birthday");
 const { ANSWERS_7, REGEX_7 } = require("./answers/email");
 const { ANSWERS_8, REGEX_8 } = require("./answers/phone");
 const { ANSWERS_9, REGEX_9 } = require("./answers/state");
 const { ANSWERS_10, REGEX_10 } = require("./answers/downtown");
 const { ANSWERS_11, CONFIG_11, OPTIONS_11 } = require("./answers/escolarity");
 const { ANSWERS_12, REGEX_12 } = require("./answers/job");
-const { ANSWERS_13, OPTIONS_13, CONFIG_13 } = require("./answers/groupCode");
-const { ANSWERS_14, OPTIONS_14, CONFIG_14 } = require("./answers/groupName");
+const { ANSWERS_13, CONFIG_13 } = require("./answers/groupCode");
+const { ANSWERS_14, CONFIG_14 } = require("./answers/groupName");
 const { ANSWERS_15, CONFIG_15, OPTIONS_15 } = require("./answers/country");
 const { ANSWERS_16, FUNC_16 } = require("./answers/sendData");
 
-const userForm = {
-  action: bkPath.register_as_a_new_partner,
-  typeOfId: "",
-  id: "",
-  name: "",
-  lastname: "",
-  gender: "",
-  dateOfBirth: {
-    year: "",
-    month: "",
-    day: "",
-  },
-  email: "",
-  phone: "",
-  state: "",
-  town: "",
-  scholarship: "",
-  job: "",
-  groupCode: "",
-  groupName: "",
-  groupCountry: "",
-};
-
 const register_as_a_new_partner = addKeyword(bkPath.register_as_a_new_partner)
   .addAnswer(ANSWERS_1, CONFIG_1, enumFormFunc(OPTIONS_1, userForm, "typeOfId"))
-  .addAnswer(ANSWERS_2, captureConfig, FUNC_2(REGEX_2, userForm, "id"))
+  .addAnswer(ANSWERS_2, captureConfig, FUNC_2)
   .addAnswer(ANSWERS_3, captureConfig, regexFormFunc(REGEX_3, userForm, "name"))
   .addAnswer(
     ANSWERS_4,
