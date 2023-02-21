@@ -2,6 +2,7 @@ const bkPath = {
   register_as_a_new_partner: "Registrarme como nuevo socio",
   buy_actions: "Comprar acciones",
   apply_for_credit: "Solicitar crédito",
+  create_group: "Crear un nuevo grupo",
 };
 
 const bkPathAPI = {
@@ -11,6 +12,7 @@ const bkPathAPI = {
   postBuyActions: "/buy-actions",
   getUserCredit: "/getUserCreditToApply",
   applyForCredit: "/apply-for-credit",
+  createGroup: "/create-group",
 };
 
 module.exports = {

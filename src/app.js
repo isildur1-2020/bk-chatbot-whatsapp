@@ -9,12 +9,14 @@ const {
 } = require("./flows/register_as_a_ new_partner");
 const { buy_actions } = require("./flows/buy-actions");
 const { apply_for_credit } = require("./flows/3");
+const { create_group } = require("./flows/create_group");
 
 const flows = [
   mainFlow,
   register_as_a_new_partner,
   buy_actions,
   apply_for_credit,
+  create_group,
 ];
 
 const main = async () => {

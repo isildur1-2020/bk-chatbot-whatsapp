@@ -9,6 +9,7 @@ const OPTIONS_1 = [
   bkPath.register_as_a_new_partner,
   bkPath.buy_actions,
   bkPath.apply_for_credit,
+  bkPath.create_group,
 ];
 
 const CONFIG_1 = {
