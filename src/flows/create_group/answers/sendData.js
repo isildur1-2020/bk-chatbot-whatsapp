@@ -1,8 +1,8 @@
 const { createGroupService } = require("../../../services/createGroup");
 
-const ANSWERS_6 = ["🌐 *_Creando solicitud..._*\n"];
+const ANSWERS_sendData = ["🌐 *_Creando solicitud..._*\n"];
 
-const FUNC_6 =
+const FUNC_sendData =
   (form) =>
   async (ctx, { endFlow }) => {
     try {
@@ -26,4 +26,4 @@ const FUNC_6 =
     }
   };
 
-module.exports = { ANSWERS_6, FUNC_6 };
+module.exports = { ANSWERS_sendData, FUNC_sendData };

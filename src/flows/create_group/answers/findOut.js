@@ -1,10 +1,10 @@
 // Género: enum
-const ANSWERS_5 = [
+const ANSWERS_findOut = [
   "*_¿Como te enteraste de nuestro modelo de grupos de ahorro y crédito?_*",
   "\n_Selecciona una opción:_\n",
 ];
 
-const OPTIONS_5 = [
+const OPTIONS_findOut = [
   "Una persona me contó sobre estos grupos",
   "Lo vi en las redes sociales",
   "Fui anteriormente miembro de un grupo",
@@ -12,12 +12,12 @@ const OPTIONS_5 = [
   "Otro",
 ];
 
-const CONFIG_5 = {
+const CONFIG_findOut = {
   capture: true,
-  buttons: OPTIONS_5.map((body) => ({ body })),
+  buttons: OPTIONS_findOut.map((body) => ({ body })),
 };
 
 module.exports = {
-  CONFIG_5,
-  ANSWERS_5,
+  CONFIG_findOut,
+  ANSWERS_findOut,
 };

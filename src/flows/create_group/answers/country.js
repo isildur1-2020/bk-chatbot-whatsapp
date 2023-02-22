@@ -1,16 +1,16 @@
 // País del grupo: string
-const ANSWERS_2 = [
+const ANSWERS_country = [
   "*_¿En qué país vives?_*",
   "\n_Selecciona el país tu país:_\n",
 ];
-const OPTIONS_2 = ["Colombia", "Argentina", "Otro"];
+const OPTIONS_country = ["Colombia", "Argentina", "Otro"];
 
-const CONFIG_2 = {
+const CONFIG_country = {
   capture: true,
-  buttons: OPTIONS_2.map((body) => ({ body })),
+  buttons: OPTIONS_country.map((body) => ({ body })),
 };
 
 module.exports = {
-  ANSWERS_2,
-  CONFIG_2,
+  ANSWERS_country,
+  CONFIG_country,
 };

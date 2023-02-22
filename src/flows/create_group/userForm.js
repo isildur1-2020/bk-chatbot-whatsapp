@@ -3,5 +3,6 @@ const userForm = {
   country: "",
   phone: "",
   findOut: "",
+  name: " ",
 };
 module.exports = { userForm };
