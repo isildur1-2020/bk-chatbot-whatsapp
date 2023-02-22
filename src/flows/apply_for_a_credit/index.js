@@ -1,8 +1,12 @@
 const { addKeyword } = require("@bot-whatsapp/bot");
 const { KEYWORDS } = require("../../utils/keywords");
-const { ANSWERS_1, FUNC_1, REGEX_1 } = require("./answers/first");
-const { ANSWERS_2, FUNC_2, REGEX_2 } = require("./answers/second");
-const { ANSWERS_3, CONFIG_3, OPTIONS_3 } = require("./answers/third");
+const { ANSWERS_id, FUNC_id } = require("./answers/id");
+const { ANSWERS_money, FUNC_money } = require("./answers/money");
+const {
+  ANSWERS_months,
+  CONFIG_months,
+  OPTIONS_months,
+} = require("./answers/months");
 const { ANSWERS_4, CONFIG_4, OPTIONS_4 } = require("./answers/fourth");
 const {
   ANSWERS_4_1,
@@ -33,14 +37,7 @@ const { captureConfig, enumFormFunc } = require("../../utils/config");
 const {
   applyForCreditService,
 } = require("../../services/applyForCreditService");
-
-const userForm = {
-  id: "",
-  money: "",
-  months: "",
-  purpose: "",
-  toUseTheCredit: "",
-};
+const { userForm } = require("./userForm");
 
 const customFunc = (options, object, keyName) => {
   return async (ctx, { fallBack, endFlow }) => {
@@ -106,9 +103,13 @@ const agriculturalInvestment = addKeyword("Inversión agrícola").addAnswer(
 );
 
 const apply_for_credit = addKeyword(KEYWORDS.apply_for_credit)
-  .addAnswer(ANSWERS_1, captureConfig, FUNC_1(REGEX_1, userForm, "id"))
-  .addAnswer(ANSWERS_2, captureConfig, FUNC_2(REGEX_2, userForm, "money"))
-  .addAnswer(ANSWERS_3, CONFIG_3, enumFormFunc(OPTIONS_3, userForm, "months"))
+  .addAnswer(ANSWERS_id, captureConfig, FUNC_id)
+  .addAnswer(ANSWERS_money, captureConfig, FUNC_money)
+  .addAnswer(
+    ANSWERS_months,
+    CONFIG_months,
+    enumFormFunc(OPTIONS_months, userForm, "months")
+  )
   .addAnswer(
     ANSWERS_4,
     CONFIG_4,

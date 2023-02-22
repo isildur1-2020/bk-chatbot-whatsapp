@@ -1,8 +1,8 @@
 const { buyActionsService } = require("../../../services/buyActionsService");
 
-const ANSWERS_3 = ["🌐 *_Creando solicitud..._*\n"];
+const ANSWERS_sendData = ["🌐 *_Creando solicitud..._*\n"];
 
-const FUNC_3 =
+const FUNC_sendData =
   (form) =>
   async (ctx, { endFlow }) => {
     try {
@@ -26,4 +26,4 @@ const FUNC_3 =
     }
   };
 
-module.exports = { ANSWERS_3, FUNC_3 };
+module.exports = { ANSWERS_sendData, FUNC_sendData };

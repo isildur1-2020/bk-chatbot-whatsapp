@@ -3,12 +3,12 @@ const {
 } = require("../../../services/getUserExistsService");
 const { userForm } = require("../userForm");
 
-const ANSWERS_1 = [
+const ANSWERS_id = [
   "*_Identidad del socio._*",
   "\n_Escribe tu número de documento de identidad:_\n",
 ];
 
-const FUNC_1 = async (ctx, { fallBack, flowDynamic, endFlow }) => {
+const FUNC_id = async (ctx, { fallBack, flowDynamic, endFlow }) => {
   try {
     const userAnswer = ctx?.body?.trim();
     const regex = new RegExp(/^\d{1,12}$/, "g");
@@ -35,4 +35,4 @@ const FUNC_1 = async (ctx, { fallBack, flowDynamic, endFlow }) => {
   }
 };
 
-module.exports = { ANSWERS_1, FUNC_1 };
+module.exports = { ANSWERS_id, FUNC_id };

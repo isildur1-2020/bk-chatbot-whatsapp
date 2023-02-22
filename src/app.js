@@ -7,8 +7,8 @@ const mainFlow = require("./flows/main");
 const {
   register_as_a_new_partner,
 } = require("./flows/register_as_a_ new_partner");
-const { buy_actions } = require("./flows/buy-actions");
-const { apply_for_credit } = require("./flows/3");
+const { buy_actions } = require("./flows/buy_actions");
+const { apply_for_credit } = require("./flows/apply_for_a_credit");
 const { create_group } = require("./flows/create_group");
 
 const flows = [

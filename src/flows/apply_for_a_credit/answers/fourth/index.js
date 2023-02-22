@@ -4,6 +4,7 @@ const ANSWERS_4 = [
   "*_¿Para qué usarás el crédito?_*",
   "\n_Selecciona una opción:_\n",
 ];
+
 const OPTIONS_4 = [
   "Inversión en negocios",
   "Pago de deudas con otros",
@@ -11,6 +12,7 @@ const OPTIONS_4 = [
   "Gastos médicos",
   "Inversión agrícola",
 ];
+
 const CONFIG_4 = {
   capture: true,
   buttons: OPTIONS_4.map((body) => ({ body })),

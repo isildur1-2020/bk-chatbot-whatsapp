@@ -12,7 +12,7 @@ const bkPathAPI = {
   postBuyActions: "/buy-actions",
   getUserCredit: "/getUserCreditToApply",
   applyForCredit: "/apply-for-credit",
-  createGroup: "/create-group",
+  createGroup: "/createGroup",
 };
 
 module.exports = {

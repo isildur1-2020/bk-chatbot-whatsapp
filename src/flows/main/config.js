@@ -1,20 +1,20 @@
 const { bkPath } = require("../../utils/bkPath");
 
-const ANSWERS_1 = [
+const ANSWERS_main = [
   "*_¡ Bienvenido a nuestro chatbot !_*",
   "\n_Por favor, elige una opción:_\n",
 ];
 
-const OPTIONS_1 = [
+const OPTIONS_main = [
   bkPath.register_as_a_new_partner,
   bkPath.buy_actions,
   bkPath.apply_for_credit,
   bkPath.create_group,
 ];
 
-const CONFIG_1 = {
+const CONFIG_main = {
   capture: true,
-  buttons: OPTIONS_1.map((body) => ({ body })),
+  buttons: OPTIONS_main.map((body) => ({ body })),
 };
 
-module.exports = { ANSWERS_1, OPTIONS_1, CONFIG_1 };
+module.exports = { ANSWERS_main, OPTIONS_main, CONFIG_main };
