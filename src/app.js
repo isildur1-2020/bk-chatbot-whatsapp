@@ -10,6 +10,8 @@ const {
 const { buy_actions } = require("./flows/buy_actions");
 const { apply_for_credit } = require("./flows/apply_for_a_credit");
 const { create_group } = require("./flows/create_group");
+const { pay_dues } = require("./flows/pay_dues");
+const { approve_actions } = require("./flows/approve_actions");
 
 const flows = [
   mainFlow,
@@ -17,6 +19,8 @@ const flows = [
   buy_actions,
   apply_for_credit,
   create_group,
+  pay_dues,
+  approve_actions,
 ];
 
 const main = async () => {

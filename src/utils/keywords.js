@@ -14,6 +14,8 @@ const KEYWORDS = {
   apply_for_credit: "Solicitar crédito",
   buy_actions: "Comprar acciones",
   create_group: "Crear un nuevo grupo",
+  pay_dues: "Pagar cuotas",
+  approve_actions: "Aprobar compra de acciones",
 };
 
 module.exports = { KEYWORDS, INIT_KEYWORDS };

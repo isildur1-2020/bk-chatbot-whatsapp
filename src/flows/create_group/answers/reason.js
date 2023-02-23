@@ -1,4 +1,3 @@
-// Género: enum
 const ANSWERS_reason = [
   "*_¿Por qué quieres abrir un grupo?_*",
   "\n_Selecciona una opción:_\n",

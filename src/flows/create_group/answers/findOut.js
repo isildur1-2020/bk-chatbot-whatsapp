@@ -1,4 +1,3 @@
-// Género: enum
 const ANSWERS_findOut = [
   "*_¿Como te enteraste de nuestro modelo de grupos de ahorro y crédito?_*",
   "\n_Selecciona una opción:_\n",

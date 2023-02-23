@@ -10,6 +10,8 @@ const OPTIONS_main = [
   bkPath.buy_actions,
   bkPath.apply_for_credit,
   bkPath.create_group,
+  bkPath.pay_dues,
+  bkPath.approve_actions,
 ];
 
 const CONFIG_main = {
